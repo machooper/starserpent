@@ -1,3 +1,4 @@
+import {checkForDarkMode} from 'lib/dark.js'
 import NextHead from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -41,14 +42,18 @@ function Head({
     </NextHead>
   )
 }
+
 function Logo({site}) {
+  const dark = checkForDarkMode()
   return (
     <>
-      {site ? (
-        <h1>{site}</h1>
-      ) : (
-        <Image src='/logo.svg' alt='Logo' layout='responsive' />
-      )}
+      <Link href='/'>
+        {dark ? (
+          <Image src='/logo/logoDark.png' alt='Logo' width={100} height={100} />
+        ) : (
+          <Image src='/logo/logo.png' alt='Logo' width={100} height={100} />
+        )}
+      </Link>
     </>
   )
 }
