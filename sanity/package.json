@@ -2,9 +2,9 @@
   "name": "starserpent",
   "private": true,
   "version": "1.0.0",
-  "description": "",
+  "description": "sanity plugins: media browser, production-preview",
   "main": "package.json",
-  "author": "Mac <macasmac@protonmail.com>",
+  "author": "Mac",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
