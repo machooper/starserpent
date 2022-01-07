@@ -80,14 +80,24 @@ export const aboutPage = {
   type: 'document',
   fields: [
     {
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'image'
+    },
+    {
       name: 'heading',
       title: 'Heading',
       type: 'string'
     },
     {
-      name: 'coverImage',
-      title: 'Cover Image',
-      type: 'image'
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        {
+          type: 'block'
+        }
+      ]
     }
   ]
 }
