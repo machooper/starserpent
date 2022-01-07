@@ -7,12 +7,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/montserrat": "^4.5.1",
+    "graphql": "latest",
+    "graphql-request": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "swr": "latest",
-    "graphql": "latest",
-    "graphql-request": "latest"
+    "swr": "latest"
   },
   "devDependencies": {
     "eslint": "latest",

@@ -102,6 +102,40 @@ export const aboutPage = {
   ]
 }
 
+export const servicesPage = {
+  name: 'servicesPage',
+  title: 'Services Page',
+  type: 'document',
+  fields: [
+    {
+      name: 'heading',
+      title: 'Heading',
+      type: 'string'
+    },
+    {
+      name: 'list',
+      title: 'List',
+      type: 'array',
+      of: [
+        {
+          type: 'string'
+        }
+      ],
+      validation: Rule => Rule.required().min(2).max(6)
+    },
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        {
+          type: 'block'
+        }
+      ]
+    }
+  ]
+}
+
 export const artist = {
   name: 'artist',
   title: 'Artist',

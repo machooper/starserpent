@@ -1,3 +1,4 @@
+import '@fontsource/montserrat'
 import '../styles/global.css'
 
 export default function App({Component, pageProps}) {

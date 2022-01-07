@@ -3,7 +3,11 @@ import {AiOutlineHome} from 'react-icons/ai'
 import {BsVinylFill} from 'react-icons/bs'
 import {GoSettings} from 'react-icons/go'
 import {MdMusicNote} from 'react-icons/md'
-import {RiFolderMusicLine, RiPagesLine} from 'react-icons/ri'
+import {
+  RiCustomerService2Line,
+  RiFolderMusicLine,
+  RiPagesLine
+} from 'react-icons/ri'
 
 export default () =>
   S.list()
@@ -33,6 +37,14 @@ export default () =>
                 .icon(RiPagesLine)
                 .child(
                   S.document().schemaType('aboutPage').documentId('aboutPage')
+                ),
+              S.listItem()
+                .title('Services')
+                .icon(RiCustomerService2Line)
+                .child(
+                  S.document()
+                    .schemaType('servicesPage')
+                    .documentId('servicesPage')
                 )
             ])
         ),
@@ -60,6 +72,7 @@ export default () =>
             'media.tag',
             'homePage',
             'aboutPage',
+            'servicesPage',
             'artist',
             'release'
           ].includes(listItem.getId())

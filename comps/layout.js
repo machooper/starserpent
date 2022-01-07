@@ -72,11 +72,14 @@ export function MenuButton({open, click}) {
 }
 
 export function Menu({open, click}) {
-  const navigation = ['Home', 'About', 'Contact']
+  const navigation = ['Home', 'About', 'Artists', 'Services', 'Contact']
   const router = useRouter()
   const active = router.asPath
   return (
     <nav>
+      <span id='close' onClick={() => click(!open)}>
+        &times;
+      </span>
       <ul>
         {navigation.map(item => (
           <li key={item}>

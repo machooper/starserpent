@@ -1,21 +1,23 @@
 :root {
-  --primary: hsl(200 100% 50%);
-  --text: hsl(200 30% 30%);
-  --heading: hsl(200 100% 10%);
-  --link: hsl(200 10% 15%);
-  --link-hover: hsl(200 10% 10%);
-  --background: hsl(200 20% 99%);
+  --primary: hsl(144, 44%, 50%);
+  --secondary: hsl(168, 50%, 60%);
+  --text: hsl(188, 25%, 13%);
+  --link: hsl(159, 42%, 54%);
+  --link-hover: hsl(186, 22%, 9%);
+  --background: hsl(0, 0%, 95%);
   --success: hsl(122, 39%, 49%);
   --warning: hsl(45, 100%, 50%);
   --error: hsl(4, 90%, 58%);
-  --shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  --radius: 10px;
-  --head: system-ui;
-  --body: system-ui;
+  --shadow: 1.5px 3px 6px var(--text);
+  --radius: 0;
+  --head: 'Montserrat', sans-serif;
+  --body: 'Montserrat', sans-serif;
+  --line-height: 30px;
 }
 
 body {
   font-family: var(--body);
+  font-weight: 300;
   background: var(--background);
   color: var(--text);
   overflow-x: hidden;
@@ -25,7 +27,7 @@ button,
 .button {
   color: var(--text);
   border: 1px solid var(--text);
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.4rem;
   border-radius: var(--radius);
   cursor: pointer;
   font-size: 0.7rem;
@@ -69,8 +71,8 @@ header {
 
 nav {
   position: absolute;
-  top: 5rem;
-  left: 0;
+  top: 0;
+  right: 0;
   z-index: 1;
   width: 100vw;
   height: 100vh;
@@ -84,9 +86,21 @@ nav {
   align-items: center;
 }
 
+nav #close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
 nav ul {
   list-style: none;
-  align-self: flex-start;
+  align-self: flex-end;
+  text-align: right;
+  padding: 3.5rem 1rem;
 }
 
 nav ul li {
@@ -95,8 +109,8 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: inherit;
-  font-size: 1.2rem;
+  color: var(--link);
+  font-size: 2.5rem;
 }
 
 nav ul li a.active {

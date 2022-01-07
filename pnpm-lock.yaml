@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@fontsource/montserrat': ^4.5.1
   eslint: latest
   eslint-config-next: latest
   graphql: latest
@@ -12,6 +13,7 @@ specifiers:
   swr: latest
 
 dependencies:
+  '@fontsource/montserrat': 4.5.1
   graphql: 16.2.0
   graphql-request: 3.7.0_graphql@16.2.0
   next: 12.0.7_react-dom@17.0.2+react@17.0.2
@@ -111,6 +113,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/montserrat/4.5.1:
+    resolution: {integrity: sha512-xdMkzsnFlzDt5Vj9+AWuUp4Vd9F3hYN2I0GTZZYscWN/bQ20wVOGtdWLO8Okfv7SZ9t/z39/EayAAt+f/8tAvw==}
+    dev: false
 
   /@hapi/accept/5.0.2:
     resolution: {integrity: sha512-CmzBx/bXUR8451fnZRuZAJRlzgm0Jgu5dltTX/bszmR2lheb9BpyN47Q1RbaGTsvFzn0PXAEs+lXDKfshccYZw==}
