@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "sanity plugins: media browser, production-preview",
+  "graphqlUrl": "https://xrddhs1w.api.sanity.io/v1/graphql/production/default",
   "main": "package.json",
   "author": "Mac",
   "license": "UNLICENSED",
