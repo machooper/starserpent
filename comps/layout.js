@@ -103,6 +103,7 @@ function Footer({site}) {
     <footer>
       <p>
         &copy; <Link href='https://starserpentrecords.com'>{site}</Link>
+        {' '}
         {new Date().getFullYear()}
       </p>
     </footer>
