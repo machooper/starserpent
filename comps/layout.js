@@ -1,77 +1,79 @@
-import NextHead from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import {useRouter} from 'next/router'
-import {useState} from 'react'
+import NextHead from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
-function Head({title, siteSettings}) {
-  const url = 'https://starserpentrecords.com'
+function Head({ title, siteSettings }) {
+  const url = "https://starserpentrecords.com";
 
   return (
     <NextHead>
       <title>
         {title} | {siteSettings.title}
       </title>
-      <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <meta charSet='utf-8' />
-      <link rel='icon' href={siteSettings.icon.asset.url} />
-      <link rel='manifest' href='/manifest.json' />
-      <meta name='description' content={siteSettings.description} />
-      <meta name='keywords' content={siteSettings.keywords} />
-      <meta name='author' content={siteSettings.title} />
-      <meta name='copyright' content={siteSettings.title} />
-      <meta property='og:title' content={`${title} | ${siteSettings.title}`} />
-      <meta property='og:description' content={siteSettings.description} />
-      <meta property='og:image' content={siteSettings.metaImage.asset.url} />
-      <meta property='og:url' content={url} />
-      <meta property='og:site_name' content={siteSettings.title} />
-      <meta property='og:type' content='website' />
-      <meta property='og:locale' content='en_GB' />
-      <meta name='twitter:card' content='summary' />
-      <meta name='twitter:site' content='@starserpentrecords' />
-      <meta name='twitter:title' content={`${title} | ${siteSettings.title}`} />
-      <meta name='twitter:description' content={siteSettings.description} />
-      <meta name='twitter:image' content={siteSettings.metaImage.asset.url} />
-      <meta name='twitter:url' content={url} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charSet="utf-8" />
+      <link rel="icon" href={siteSettings.icon.asset.url} />
+      <link rel="manifest" href="/manifest.json" />
+      <meta name="description" content={siteSettings.description} />
+      <meta name="keywords" content={siteSettings.keywords} />
+      <meta name="author" content={siteSettings.title} />
+      <meta name="copyright" content={siteSettings.title} />
+      <meta property="og:title" content={`${title} | ${siteSettings.title}`} />
+      <meta property="og:description" content={siteSettings.description} />
+      <meta property="og:image" content={siteSettings.metaImage.asset.url} />
+      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content={siteSettings.title} />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en_GB" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@starserpentrecords" />
+      <meta name="twitter:title" content={`${title} | ${siteSettings.title}`} />
+      <meta name="twitter:description" content={siteSettings.description} />
+      <meta name="twitter:image" content={siteSettings.metaImage.asset.url} />
+      <meta name="twitter:url" content={url} />
     </NextHead>
-  )
+  );
 }
 
-function Logo({logo, logoDark}) {
+function Logo({ logo, logoDark }) {
   return (
     <>
-      <Link href='/'>
-        <Image src={logo} alt='Logo' width={120} height={100} />
+      <Link href="/">
+        <a>
+          <Image src={logo} alt="Logo" width={120} height={100} />
+        </a>
       </Link>
     </>
-  )
+  );
 }
 
-export function MenuButton({open, click}) {
+export function MenuButton({ open, click }) {
   return (
-    <button className='btn-no-styles' onClick={() => click(!open)}>
-      <svg viewBox='0 0 100 80' width='40' height='40'>
-        <rect y='25' width='70' height='5'></rect>
-        <rect y='50' width='70' height='5'></rect>
+    <button className="btn-no-styles" onClick={() => click(!open)}>
+      <svg viewBox="0 0 100 80" width="40" height="40">
+        <rect y="25" width="70" height="5"></rect>
+        <rect y="50" width="70" height="5"></rect>
       </svg>
     </button>
-  )
+  );
 }
 
-export function Menu({open, click}) {
-  const navigation = ['Home', 'About', 'Artists', 'Services', 'Contact']
-  const router = useRouter()
-  const active = router.asPath
+export function Menu({ open, click }) {
+  const navigation = ["Home", "About", "Artists", "Services", "Contact"];
+  const router = useRouter();
+  const active = router.asPath;
   return (
     <nav>
-      <span id='close' onClick={() => click(!open)}>
+      <span id="close" onClick={() => click(!open)}>
         &times;
       </span>
       <ul>
-        {navigation.map(item => (
+        {navigation.map((item) => (
           <li key={item}>
             <Link href={`/${item.toLowerCase()}`}>
-              <a className={active === item && 'active'}>{item}</a>
+              <a className={active === item && "active"}>{item}</a>
             </Link>
           </li>
         ))}
@@ -79,38 +81,36 @@ export function Menu({open, click}) {
 
       <style jsx>{`
         nav {
-          transform: ${open ? 'translateX(0)' : 'translateX(-150%)'};
+          transform: ${open ? "translateX(0)" : "translateX(150%)"};
         }
       `}</style>
     </nav>
-  )
+  );
 }
 
-function Header({logo, logoDark}) {
-  const [menuVisible, setMenuVisible] = useState(false)
-
+function Header({ logo, logoDark, menuVisible, setMenuVisible }) {
   return (
     <header>
       <Logo logo={logo.asset.url} logoDark={logoDark.asset.url} />
       <MenuButton open={menuVisible} click={setMenuVisible} />
       <Menu open={menuVisible} click={setMenuVisible} />
     </header>
-  )
+  );
 }
 
-function Footer({site}) {
+function Footer({ site }) {
   return (
     <footer>
       <p>
-        &copy; <Link href='https://starserpentrecords.com'>{site}</Link>
-        {' '}
+        &copy; <Link href="https://starserpentrecords.com">{site}</Link>{" "}
         {new Date().getFullYear()}
       </p>
     </footer>
-  )
+  );
 }
 
-export default function Layout({children, title, description, siteSettings}) {
+export default function Layout({ children, title, description, siteSettings }) {
+  const [menuVisible, setMenuVisible] = useState(false);
   return (
     <>
       <Head
@@ -118,9 +118,19 @@ export default function Layout({children, title, description, siteSettings}) {
         description={description}
         siteSettings={siteSettings}
       />
-      <Header logo={siteSettings.logo} logoDark={siteSettings.logoDark} />
+      <Header
+        logo={siteSettings.logo}
+        logoDark={siteSettings.logoDark}
+        menuVisible={menuVisible}
+        setMenuVisible={setMenuVisible}
+      />
       <main>{children}</main>
       <Footer site={siteSettings.title} />
+      <style jsx>{`
+        main {
+          opacity: ${menuVisible ? "0.3" : "1"};
+        }
+      `}</style>
     </>
-  )
+  );
 }

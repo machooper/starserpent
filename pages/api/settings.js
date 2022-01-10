@@ -1,9 +1,9 @@
-import {request} from 'graphql-request'
+import { request } from "graphql-request";
 
 export default async (req, res) => {
   try {
     const siteSettings = await request(
-      'https://xrddhs1w.api.sanity.io/v1/graphql/production/default',
+      "https://xrddhs1w.api.sanity.io/v1/graphql/production/default",
       `
 {
 	SiteSettings(id: "siteSettings") {
@@ -33,10 +33,9 @@ export default async (req, res) => {
   }
 }
     `
-    )
-    res.status(200).json(siteSettings.SiteSettings)
+    );
+    res.status(200).json(siteSettings.SiteSettings);
   } catch (e) {
-    res.status(500).json(e)
+    res.status(500).json(e);
   }
-}
-
+};

@@ -1,80 +1,80 @@
-import S from '@sanity/desk-tool/structure-builder'
-import {AiOutlineHome} from 'react-icons/ai'
-import {BsVinylFill} from 'react-icons/bs'
-import {GoSettings} from 'react-icons/go'
-import {MdMusicNote} from 'react-icons/md'
+import S from "@sanity/desk-tool/structure-builder";
+import { AiOutlineHome } from "react-icons/ai";
+import { BsVinylFill } from "react-icons/bs";
+import { GoSettings } from "react-icons/go";
+import { MdMusicNote } from "react-icons/md";
 import {
   RiCustomerService2Line,
   RiFolderMusicLine,
-  RiPagesLine
-} from 'react-icons/ri'
+  RiPagesLine,
+} from "react-icons/ri";
 
 export default () =>
   S.list()
-    .title('Base')
+    .title("Base")
     .items([
       S.listItem()
-        .title('Settings')
+        .title("Settings")
         .icon(GoSettings)
         .child(
-          S.document().schemaType('siteSettings').documentId('siteSettings')
+          S.document().schemaType("siteSettings").documentId("siteSettings")
         ),
       S.listItem()
-        .title('Pages')
+        .title("Pages")
         .icon(RiPagesLine)
         .child(
           S.list()
-            .title('Pages')
+            .title("Pages")
             .items([
               S.listItem()
-                .title('Home')
+                .title("Home")
                 .icon(AiOutlineHome)
                 .child(
-                  S.document().schemaType('homePage').documentId('homePage')
+                  S.document().schemaType("homePage").documentId("homePage")
                 ),
               S.listItem()
-                .title('About')
+                .title("About")
                 .icon(RiPagesLine)
                 .child(
-                  S.document().schemaType('aboutPage').documentId('aboutPage')
+                  S.document().schemaType("aboutPage").documentId("aboutPage")
                 ),
               S.listItem()
-                .title('Services')
+                .title("Services")
                 .icon(RiCustomerService2Line)
                 .child(
                   S.document()
-                    .schemaType('servicesPage')
-                    .documentId('servicesPage')
-                )
+                    .schemaType("servicesPage")
+                    .documentId("servicesPage")
+                ),
             ])
         ),
       S.listItem()
-        .title('Content')
+        .title("Content")
         .icon(BsVinylFill)
         .child(
           S.list()
-            .title('Content')
+            .title("Content")
             .items([
               S.listItem()
-                .title('Artists')
+                .title("Artists")
                 .icon(MdMusicNote)
-                .child(S.documentTypeList('artist').title('Artists').child()),
+                .child(S.documentTypeList("artist").title("Artists").child()),
               S.listItem()
-                .title('Releases')
+                .title("Releases")
                 .icon(RiFolderMusicLine)
-                .child(S.documentTypeList('release').title('Releases').child())
+                .child(S.documentTypeList("release").title("Releases").child()),
             ])
         ),
       ...S.documentTypeListItems().filter(
-        listItem =>
+        (listItem) =>
           ![
-            'siteSettings',
-            'media.tag',
-            'homePage',
-            'aboutPage',
-            'servicesPage',
-            'artist',
-            'release'
+            "siteSettings",
+            "media.tag",
+            "homePage",
+            "aboutPage",
+            "servicesPage",
+            "artist",
+            "release",
           ].includes(listItem.getId())
-      )
-    ])
+      ),
+    ]);
