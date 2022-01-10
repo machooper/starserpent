@@ -1,22 +1,18 @@
 import {checkForDarkMode} from 'lib/dark.js'
+import {fetcher} from 'lib/fetch'
 import NextHead from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {useState} from 'react'
+import useSWR from 'swr'
 
-function Head({
-  url = 'https://link.com',
-  site = 'Site',
-  title = 'Page',
-  locale = 'en_GB',
-  description = 'An awesome description',
-  keywords = 'Website, Next.js, Web Development'
-}) {
+function Head({title, description}) {
+  const {data: siteSettings} = useSWR('/api/settings', fetcher)
   return (
     <NextHead>
       <title>
-        {title} | {site}
+        {title} | {siteSettings.title}
       </title>
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <meta charSet='utf-8' />
@@ -24,18 +20,18 @@ function Head({
       <link rel='manifest' href='/manifest.json' />
       <meta name='description' content={description} />
       <meta name='keywords' content={keywords} />
-      <meta name='author' content={site} />
-      <meta name='copyright' content={site} />
-      <meta property='og:title' content={`${title} | ${site}`} />
+      <meta name='author' content={siteSettings.title} />
+      <meta name='copyright' content={siteSettings.title} />
+      <meta property='og:title' content={`${title} | ${siteSettings.title}`} />
       <meta property='og:description' content={description} />
       <meta property='og:image' content='/og.jpg' />
       <meta property='og:url' content={url} />
-      <meta property='og:site_name' content={site} />
+      <meta property='og:site_name' content={siteSettings.title} />
       <meta property='og:type' content='website' />
       <meta property='og:locale' content={locale} />
       <meta name='twitter:card' content='summary' />
       <meta name='twitter:site' content='@site' />
-      <meta name='twitter:title' content={`${title} | ${site}`} />
+      <meta name='twitter:title' content={`${title} | ${siteSettings.title}`} />
       <meta name='twitter:description' content={description} />
       <meta name='twitter:image' content='/og.jpg' />
       <meta name='twitter:url' content={url} />
@@ -43,16 +39,28 @@ function Head({
   )
 }
 
-function Logo({site}) {
+function Logo({logo, logoDark}) {
   const dark = checkForDarkMode()
   return (
     <>
       <Link href='/'>
-        {dark ? (
-          <Image src='/logo/logoDark.png' alt='Logo' width={100} height={100} />
-        ) : (
-          <Image src='/logo/logo.png' alt='Logo' width={100} height={100} />
-        )}
+        <>
+          {dark ? (
+            <Image
+              src={logo || '/logo/logo.png'}
+              alt='Logo'
+              width={100}
+              height={100}
+            />
+          ) : (
+            <Image
+              src={logoDark || '/logo/logo.png'}
+              alt='Logo'
+              width={100}
+              height={100}
+            />
+          )}
+        </>
       </Link>
     </>
   )
@@ -107,25 +115,19 @@ function Footer({site}) {
   return (
     <footer>
       <p>
-        &copy; <Link href='#'>{site}</Link> {new Date().getFullYear()}
+        &copy; {site} {new Date().getFullYear()}
       </p>
     </footer>
   )
 }
 
 export default function Layout({children, title, description, keywords}) {
-  const site = 'Site'
   return (
     <>
-      <Head
-        site={site}
-        title={title}
-        description={description}
-        keywords={keywords}
-      />
-      <Header site={site} />
+      <Head title={title} description={description} />
+      <Header />
       <main>{children}</main>
-      <Footer site={site} />
+      <Footer />
     </>
   )
 }
