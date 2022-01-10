@@ -1,14 +1,12 @@
-import {checkForDarkMode} from 'lib/dark.js'
-import {fetcher} from 'lib/fetch'
 import NextHead from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import {useState} from 'react'
-import useSWR from 'swr'
 
-function Head({title, description}) {
-  const {data: siteSettings} = useSWR('/api/settings', fetcher)
+function Head({title, siteSettings}) {
+  const url = 'https://starserpentrecords.com'
+
   return (
     <NextHead>
       <title>
@@ -16,51 +14,34 @@ function Head({title, description}) {
       </title>
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <meta charSet='utf-8' />
-      <link rel='icon' href='/favicon.svg' />
+      <link rel='icon' href={siteSettings.icon.asset.url} />
       <link rel='manifest' href='/manifest.json' />
-      <meta name='description' content={description} />
-      <meta name='keywords' content={keywords} />
+      <meta name='description' content={siteSettings.description} />
+      <meta name='keywords' content={siteSettings.keywords} />
       <meta name='author' content={siteSettings.title} />
       <meta name='copyright' content={siteSettings.title} />
       <meta property='og:title' content={`${title} | ${siteSettings.title}`} />
-      <meta property='og:description' content={description} />
-      <meta property='og:image' content='/og.jpg' />
+      <meta property='og:description' content={siteSettings.description} />
+      <meta property='og:image' content={siteSettings.metaImage.asset.url} />
       <meta property='og:url' content={url} />
       <meta property='og:site_name' content={siteSettings.title} />
       <meta property='og:type' content='website' />
-      <meta property='og:locale' content={locale} />
+      <meta property='og:locale' content='en_GB' />
       <meta name='twitter:card' content='summary' />
-      <meta name='twitter:site' content='@site' />
+      <meta name='twitter:site' content='@starserpentrecords' />
       <meta name='twitter:title' content={`${title} | ${siteSettings.title}`} />
-      <meta name='twitter:description' content={description} />
-      <meta name='twitter:image' content='/og.jpg' />
+      <meta name='twitter:description' content={siteSettings.description} />
+      <meta name='twitter:image' content={siteSettings.metaImage.asset.url} />
       <meta name='twitter:url' content={url} />
     </NextHead>
   )
 }
 
 function Logo({logo, logoDark}) {
-  const dark = checkForDarkMode()
   return (
     <>
       <Link href='/'>
-        <>
-          {dark ? (
-            <Image
-              src={logo || '/logo/logo.png'}
-              alt='Logo'
-              width={100}
-              height={100}
-            />
-          ) : (
-            <Image
-              src={logoDark || '/logo/logo.png'}
-              alt='Logo'
-              width={100}
-              height={100}
-            />
-          )}
-        </>
+        <Image src={logo} alt='Logo' width={120} height={100} />
       </Link>
     </>
   )
@@ -95,18 +76,24 @@ export function Menu({open, click}) {
           </li>
         ))}
       </ul>
+
+      <style jsx>{`
+        nav {
+          transform: ${open ? 'translateX(0)' : 'translateX(-150%)'};
+        }
+      `}</style>
     </nav>
   )
 }
 
-function Header({site}) {
+function Header({logo, logoDark}) {
   const [menuVisible, setMenuVisible] = useState(false)
 
   return (
     <header>
-      <Logo site={site} />
+      <Logo logo={logo.asset.url} logoDark={logoDark.asset.url} />
       <MenuButton open={menuVisible} click={setMenuVisible} />
-      {menuVisible && <Menu open={menuVisible} click={setMenuVisible} />}
+      <Menu open={menuVisible} click={setMenuVisible} />
     </header>
   )
 }
@@ -115,19 +102,24 @@ function Footer({site}) {
   return (
     <footer>
       <p>
-        &copy; {site} {new Date().getFullYear()}
+        &copy; <Link href='https://starserpentrecords.com'>{site}</Link>
+        {new Date().getFullYear()}
       </p>
     </footer>
   )
 }
 
-export default function Layout({children, title, description, keywords}) {
+export default function Layout({children, title, description, siteSettings}) {
   return (
     <>
-      <Head title={title} description={description} />
-      <Header />
+      <Head
+        title={title}
+        description={description}
+        siteSettings={siteSettings}
+      />
+      <Header logo={siteSettings.logo} logoDark={siteSettings.logoDark} />
       <main>{children}</main>
-      <Footer />
+      <Footer site={siteSettings.title} />
     </>
   )
 }

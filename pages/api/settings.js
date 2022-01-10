@@ -9,6 +9,7 @@ export default async (req, res) => {
 	SiteSettings(id: "siteSettings") {
     title
     description
+    keywords
     logo {
       asset {
         url
@@ -24,11 +25,16 @@ export default async (req, res) => {
         url
       }
     }
+    metaImage {
+      asset {
+        url
+      }
+    }
   }
 }
     `
     )
-    res.status(200).json(siteSettings)
+    res.status(200).json(siteSettings.SiteSettings)
   } catch (e) {
     res.status(500).json(e)
   }

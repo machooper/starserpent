@@ -29,6 +29,19 @@ export const siteSettings = {
       type: 'image'
     },
     {
+      name: 'metaImage',
+      title: 'Site Meta Image',
+      type: 'image',
+      description:
+        'The image displayed when the site is shared on social media.'
+    },
+    {
+      name: 'keywords',
+      title: 'Site Keywords',
+      type: 'array',
+      of: [{type: 'string'}]
+    },
+    {
       name: 'twitter',
       title: 'Twitter Username',
       type: 'string'
