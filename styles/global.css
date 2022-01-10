@@ -45,6 +45,12 @@ button,
   color: var(--background);
 }
 
+.btn-no-styles {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text);
+}
+
 .btn-group {
   display: flex;
   flex-direction: row;
