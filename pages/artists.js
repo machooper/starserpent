@@ -27,9 +27,6 @@ export default function Artists({ siteSettings, artists }) {
           {artists.map((artist) => (
             <ArtistCard key={artist.id} {...artist} />
           ))}
-          {artists.map((artist) => (
-            <ArtistCard key={artist.id} {...artist} />
-          ))}
         </div>
       </div>
     </Layout>
