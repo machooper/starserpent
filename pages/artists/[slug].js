@@ -7,16 +7,16 @@ import { fetcher } from "lib/fetch";
 function ReleaseCard({ name, artwork, url }) {
   return (
     <div key={url}>
-    <Link href={url}>
-      <a className="box">
-        <Image
-          src={artwork.asset.url}
-          alt={artwork.asset.altText}
-          width={200}
-          height={200}
-        />
-      </a>
-    </Link>
+      <Link href={url}>
+        <a className="box">
+          <Image
+            src={artwork.asset.url}
+            alt={artwork.asset.altText}
+            width={200}
+            height={200}
+          />
+        </a>
+      </Link>
     </div>
   );
 }
