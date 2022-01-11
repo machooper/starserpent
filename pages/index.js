@@ -1,6 +1,6 @@
-import { fetcher } from "lib/fetch";
 import Link from "next/link";
 import Layout from "../comps/layout";
+import {siteSettingsQuery, homePageQuery} from 'lib/queries';
 
 export default function Home({ siteSettings, homePage }) {
   return (
@@ -21,8 +21,8 @@ export default function Home({ siteSettings, homePage }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
-  const homePage = await fetcher(`${process.env.URL}/api/home`);
+  const siteSettings = await siteSettingsQuery();
+  const homePage = await homePageQuery();
 
   return {
     props: {

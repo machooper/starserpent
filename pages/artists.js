@@ -1,7 +1,7 @@
-import { fetcher } from "lib/fetch";
 import Layout from "comps/layout";
 import Link from "next/link";
 import Image from "next/image";
+import {siteSettingsQuery, allArtistsQuery} from 'lib/queries';
 
 function ArtistCard({ name, displayImage, slug }) {
   return (
@@ -34,8 +34,9 @@ export default function Artists({ siteSettings, artists }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
-  const artists = await fetcher(`${process.env.URL}/api/artists`);
+  const siteSettings = await siteSettingsQuery();
+  const artists = await allArtistsQuery();
+  console.log(artists);
 
   return {
     props: {

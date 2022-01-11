@@ -1,10 +1,10 @@
 import Layout from "comps/layout";
-import { fetcher } from "lib/fetch";
 import Image from "next/image";
+import {siteSettingsQuery, aboutPageQuery} from 'lib/queries';
 
 export default function About({ siteSettings, aboutPage }) {
   return (
-    <Layout siteSettings={siteSettings}>
+    <Layout title='About' siteSettings={siteSettings}>
       <div className="container">
         <h1>About</h1>
         <div className="cover-image">
@@ -27,8 +27,10 @@ export default function About({ siteSettings, aboutPage }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
-  const aboutPage = await fetcher(`${process.env.URL}/api/about`);
+  const siteSettings = await siteSettingsQuery();
+  const aboutPage = await aboutPageQuery();
+  console.log(siteSettings);
+  console.log(aboutPage);
 
   return {
     props: {

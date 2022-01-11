@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "comps/layout";
-import { fetcher } from "lib/fetch";
+import {siteSettingsQuery, allArtistSlugs, artistBySlug} from 'lib/queries';
 
 function ReleaseCard({ name, artwork, url }) {
   return (
@@ -52,11 +52,9 @@ export default function Artist({ siteSettings, artist }) {
 }
 
 export async function getStaticProps({ params }) {
-  const siteSettings = await fetcher("http://localhost:3000/api/settings");
-  const artists = await fetcher(
-    `${process.env.URL}/api/artists/${params.slug}`
-  );
-  const artist = artists.allArtist[0];
+  const siteSettings = await siteSettingsQuery();
+  const artist = await artistBySlug(params.slug);
+  console.log(artist);
 
   return {
     props: {
@@ -67,7 +65,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const artists = await fetch(`${process.env.URL}/api/artists`);
+  const artists = await allArtistSlugs();
 
   return {
     paths: artists.map((artist) => {

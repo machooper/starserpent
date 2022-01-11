@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "comps/layout";
-import { fetcher } from "lib/fetch";
+import {siteSettingsQuery} from "lib/queries";
 
 export default function Contact({ siteSettings }) {
   const [input, setInput] = useState({});
@@ -64,7 +64,7 @@ export default function Contact({ siteSettings }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
+  const siteSettings = await siteSettingsQuery();
 
   return {
     props: {

@@ -1,6 +1,5 @@
 import Layout from "comps/layout";
-import { useEffect } from "react";
-import { fetcher } from "lib/fetch";
+import {siteSettingsQuery, servicesPageQuery} from 'lib/queries';
 
 export default function Services({ siteSettings, servicesPage }) {
   return (
@@ -34,8 +33,8 @@ export default function Services({ siteSettings, servicesPage }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
-  const servicesPage = await fetcher(`${process.env.URL}/api/services`);
+  const siteSettings = await siteSettingsQuery();
+  const servicesPage = await servicesPageQuery();
 
   return {
     props: {

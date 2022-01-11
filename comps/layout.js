@@ -72,7 +72,7 @@ export function Menu({ open, click }) {
       <ul>
         {navigation.map((item) => (
           <li key={item}>
-            <Link href={`/${item.toLowerCase()}`}>
+            <Link href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}>
               <a className={active === item && "active"}>{item}</a>
             </Link>
           </li>
