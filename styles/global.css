@@ -10,8 +10,8 @@
   --error: hsl(4, 90%, 58%);
   --shadow: 1.5px 1px 6px var(--text);
   --radius: 0;
-  --head: "Montserrat", sans-serif;
-  --body: "Montserrat", sans-serif;
+  --head: 'Montserrat', sans-serif;
+  --body: 'Montserrat', sans-serif;
   --line-height: 30px;
 }
 
@@ -68,8 +68,7 @@ button,
   align-items: flex-start;
 }
 
-input,
-textarea {
+input, textarea {
   min-width: 300px;
   max-width: 300px;
   border-radius: var(--radius);
@@ -108,7 +107,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: -7px -1px 7px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: -7px -1px 7px 0px rgba(0,0,0,0.4);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -162,6 +161,7 @@ main {
   width: 100vw;
 }
 
+
 .cover-image {
   width: 100vw;
   padding: 0;
@@ -172,7 +172,7 @@ main {
   width: 300px;
   height: 500px;
   cursor: pointer;
-  margin: 0.5rem;
+  margin: .5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
