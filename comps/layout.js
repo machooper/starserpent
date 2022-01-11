@@ -81,7 +81,7 @@ export function Menu({ open, click }) {
 
       <style jsx>{`
         nav {
-          transform: ${open ? "translateX(0)" : "translateX(150%)"};
+          transform: translateX(${open ? "0" : "130%"});
         }
       `}</style>
     </nav>
