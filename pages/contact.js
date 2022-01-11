@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "comps/layout";
-import {siteSettingsQuery} from "lib/queries";
+import { siteSettingsQuery } from "lib/queries";
 
 export default function Contact({ siteSettings }) {
   const [input, setInput] = useState({});

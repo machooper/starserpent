@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix; stylelint 'styles/**' --fix"
+    "lint": "next lint --fix; stylelint 'styles/**' --fix;"
   },
   "eslintConfig": {
     "extends": "next/core-web-vitals",
@@ -15,7 +15,10 @@
     ]
   },
   "stylelint": {
-    "extends": ["stylelint-config-standard", "stylelint-config-rational-order"],
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-rational-order"
+    ],
     "rules": {
       "no-descending-specificity": null
     },

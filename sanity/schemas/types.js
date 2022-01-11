@@ -1,242 +1,242 @@
 export const siteSettings = {
-  name: 'siteSettings',
-  title: 'Site Settings',
-  type: 'document',
+  name: "siteSettings",
+  title: "Site Settings",
+  type: "document",
   fields: [
     {
-      name: 'title',
-      title: 'Site Title',
-      type: 'string'
+      name: "title",
+      title: "Site Title",
+      type: "string",
     },
     {
-      name: 'description',
-      title: 'Site Description',
-      type: 'string'
+      name: "description",
+      title: "Site Description",
+      type: "string",
     },
     {
-      name: 'logo',
-      title: 'Site Logo',
-      type: 'image'
+      name: "logo",
+      title: "Site Logo",
+      type: "image",
     },
     {
-      name: 'logoDark',
-      title: 'Site Logo Dark',
-      type: 'image'
+      name: "logoDark",
+      title: "Site Logo Dark",
+      type: "image",
     },
     {
-      name: 'icon',
-      title: 'Site Icon',
-      type: 'image'
+      name: "icon",
+      title: "Site Icon",
+      type: "image",
     },
     {
-      name: 'metaImage',
-      title: 'Site Meta Image',
-      type: 'image',
+      name: "metaImage",
+      title: "Site Meta Image",
+      type: "image",
       description:
-        'The image displayed when the site is shared on social media.'
+        "The image displayed when the site is shared on social media.",
     },
     {
-      name: 'keywords',
-      title: 'Site Keywords',
-      type: 'array',
-      of: [{type: 'string'}]
+      name: "keywords",
+      title: "Site Keywords",
+      type: "array",
+      of: [{ type: "string" }],
     },
     {
-      name: 'twitter',
-      title: 'Twitter Username',
-      type: 'string'
+      name: "twitter",
+      title: "Twitter Username",
+      type: "string",
     },
     {
-      name: 'facebook',
-      title: 'Facebook Username',
-      type: 'string'
+      name: "facebook",
+      title: "Facebook Username",
+      type: "string",
     },
     {
-      name: 'instagram',
-      title: 'Instagram Username',
-      type: 'string'
+      name: "instagram",
+      title: "Instagram Username",
+      type: "string",
     },
     {
-      name: 'soundcloud',
-      title: 'Soundcloud Username',
-      type: 'string'
+      name: "soundcloud",
+      title: "Soundcloud Username",
+      type: "string",
     },
     {
-      name: 'youtube',
-      title: 'Youtube Username',
-      type: 'string'
-    }
-  ]
-}
+      name: "youtube",
+      title: "Youtube Username",
+      type: "string",
+    },
+  ],
+};
 
 export const homePage = {
-  name: 'homePage',
-  title: 'Home Page',
-  type: 'document',
+  name: "homePage",
+  title: "Home Page",
+  type: "document",
   fields: [
     {
-      name: 'heading',
-      title: 'Heading',
-      type: 'string'
+      name: "heading",
+      title: "Heading",
+      type: "string",
     },
     {
-      name: 'subheading',
-      title: 'Subheading',
-      type: 'string'
-    }
-  ]
-}
+      name: "subheading",
+      title: "Subheading",
+      type: "string",
+    },
+  ],
+};
 
 export const aboutPage = {
-  name: 'aboutPage',
-  title: 'About Page',
-  type: 'document',
+  name: "aboutPage",
+  title: "About Page",
+  type: "document",
   fields: [
     {
-      name: 'coverImage',
-      title: 'Cover Image',
-      type: 'image'
+      name: "coverImage",
+      title: "Cover Image",
+      type: "image",
     },
     {
-      name: 'heading',
-      title: 'Heading',
-      type: 'string'
+      name: "heading",
+      title: "Heading",
+      type: "string",
     },
     {
-      name: 'content',
-      title: 'Content',
-      type: 'array',
+      name: "content",
+      title: "Content",
+      type: "array",
       of: [
         {
-          type: 'block'
-        }
-      ]
-    }
-  ]
-}
+          type: "block",
+        },
+      ],
+    },
+  ],
+};
 
 export const servicesPage = {
-  name: 'servicesPage',
-  title: 'Services Page',
-  type: 'document',
+  name: "servicesPage",
+  title: "Services Page",
+  type: "document",
   fields: [
     {
-      name: 'heading',
-      title: 'Heading',
-      type: 'string'
+      name: "heading",
+      title: "Heading",
+      type: "string",
     },
     {
-      name: 'list',
-      title: 'List',
-      type: 'array',
+      name: "list",
+      title: "List",
+      type: "array",
       of: [
         {
-          type: 'string'
-        }
+          type: "string",
+        },
       ],
-      validation: Rule => Rule.required().min(2).max(6)
+      validation: (Rule) => Rule.required().min(2).max(6),
     },
     {
-      name: 'content',
-      title: 'Content',
-      type: 'array',
+      name: "content",
+      title: "Content",
+      type: "array",
       of: [
         {
-          type: 'block'
-        }
-      ]
-    }
-  ]
-}
+          type: "block",
+        },
+      ],
+    },
+  ],
+};
 
 export const artist = {
-  name: 'artist',
-  title: 'Artist',
-  type: 'document',
+  name: "artist",
+  title: "Artist",
+  type: "document",
   fields: [
     {
-      name: 'name',
-      title: 'Name',
-      type: 'string'
+      name: "name",
+      title: "Name",
+      type: "string",
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'name',
-        maxLength: 96
-      }
+        source: "name",
+        maxLength: 96,
+      },
     },
     {
-      name: 'coverImage',
-      title: 'Cover Image',
-      description: 'This image displays on the artist page',
-      type: 'image'
+      name: "coverImage",
+      title: "Cover Image",
+      description: "This image displays on the artist page",
+      type: "image",
     },
     {
-      name: 'displayImage',
-      title: 'Display Image',
-      description: 'This image displays on the all artists page',
-      type: 'image'
+      name: "displayImage",
+      title: "Display Image",
+      description: "This image displays on the all artists page",
+      type: "image",
     },
     {
-      name: 'biography',
-      title: 'Biography',
-      type: 'array',
+      name: "biography",
+      title: "Biography",
+      type: "array",
       of: [
         {
-          type: 'block'
-        }
-      ]
+          type: "block",
+        },
+      ],
     },
     {
-      name: 'releases',
-      title: 'Releases',
-      type: 'array',
+      name: "releases",
+      title: "Releases",
+      type: "array",
       of: [
         {
-          type: 'reference',
+          type: "reference",
           to: [
             {
-              type: 'release'
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+              type: "release",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
 
 export const release = {
-  name: 'release',
-  title: 'Release',
-  type: 'document',
+  name: "release",
+  title: "Release",
+  type: "document",
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string'
+      name: "title",
+      title: "Title",
+      type: "string",
     },
     {
-      name: 'artwork',
-      title: 'Artwork',
-      type: 'image'
+      name: "artwork",
+      title: "Artwork",
+      type: "image",
     },
     {
-      name: 'url',
-      title: 'URL',
-      type: 'url'
+      name: "url",
+      title: "URL",
+      type: "url",
     },
     {
-      name: 'artist',
-      title: 'Artist',
-      type: 'reference',
+      name: "artist",
+      title: "Artist",
+      type: "reference",
       to: [
         {
-          type: 'artist'
-        }
-      ]
-    }
-  ]
-}
+          type: "artist",
+        },
+      ],
+    },
+  ],
+};

@@ -26,7 +26,7 @@ const handler = async (req, res) => {
         console.log("Email sent: " + info.response);
       }
     });
-    res.status(204).end()
+    res.status(204).end();
   } catch (e) {
     res.status(500).json({ error: e.message });
     console.log(e);

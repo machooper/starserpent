@@ -1,7 +1,7 @@
 import Layout from "comps/layout";
 import Link from "next/link";
 import Image from "next/image";
-import {siteSettingsQuery, allArtistsQuery} from 'lib/queries';
+import { siteSettingsQuery, allArtistsQuery } from "lib/queries";
 
 function ArtistCard({ name, displayImage, slug }) {
   return (

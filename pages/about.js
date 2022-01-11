@@ -1,10 +1,10 @@
 import Layout from "comps/layout";
 import Image from "next/image";
-import {siteSettingsQuery, aboutPageQuery} from 'lib/queries';
+import { siteSettingsQuery, aboutPageQuery } from "lib/queries";
 
 export default function About({ siteSettings, aboutPage }) {
   return (
-    <Layout title='About' siteSettings={siteSettings}>
+    <Layout title="About" siteSettings={siteSettings}>
       <div className="container">
         <h1>About</h1>
         <div className="cover-image">

@@ -1,22 +1,22 @@
-import schemaTypes from 'all:part:@sanity/base/schema-type'
-import createSchema from 'part:@sanity/base/schema-creator'
+import schemaTypes from "all:part:@sanity/base/schema-type";
+import createSchema from "part:@sanity/base/schema-creator";
 import {
   aboutPage,
   artist,
   homePage,
   release,
   servicesPage,
-  siteSettings
-} from './types'
+  siteSettings,
+} from "./types";
 
 export default createSchema({
-  name: 'default',
+  name: "default",
   types: schemaTypes.concat([
     siteSettings,
     homePage,
     aboutPage,
     servicesPage,
     artist,
-    release
-  ])
-})
+    release,
+  ]),
+});

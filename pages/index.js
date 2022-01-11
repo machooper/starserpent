@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Layout from "../comps/layout";
-import {siteSettingsQuery, homePageQuery} from 'lib/queries';
+import { siteSettingsQuery, homePageQuery } from "lib/queries";
 
 export default function Home({ siteSettings, homePage }) {
   return (

@@ -1,5 +1,5 @@
 import Layout from "comps/layout";
-import {siteSettingsQuery, servicesPageQuery} from 'lib/queries';
+import { siteSettingsQuery, servicesPageQuery } from "lib/queries";
 
 export default function Services({ siteSettings, servicesPage }) {
   return (
