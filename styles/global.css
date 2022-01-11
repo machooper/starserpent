@@ -37,7 +37,7 @@ button,
 }
 
 .btn-primary {
-  color: var(--background);
+  color: var(--text);
   background: var(--primary);
   border-color: var(--primary);
 }
@@ -131,7 +131,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: var(--link);
+  color: var(--link-hover);
   font-size: 2.5rem;
   text-decoration: none;
 }
