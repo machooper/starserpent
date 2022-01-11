@@ -50,7 +50,11 @@ function Logo({ logo, logoDark }) {
 
 export function MenuButton({ open, click }) {
   return (
-    <button aria-label="Menu Button" className="btn-no-styles" onClick={() => click(!open)}>
+    <button
+      aria-label="Menu Button"
+      className="btn-no-styles"
+      onClick={() => click(!open)}
+    >
       <svg viewBox="0 0 100 80" width="40" height="40">
         <rect y="25" width="70" height="5"></rect>
         <rect y="50" width="70" height="5"></rect>
