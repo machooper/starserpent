@@ -1,25 +1,25 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
-import Layout from 'comps/layout';
-import {fetcher} from 'lib/fetch';
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import Layout from "comps/layout";
+import { fetcher } from "lib/fetch";
 
-function ReleaseCard({name, artwork, url}) {
+function ReleaseCard({ name, artwork, url }) {
   return (
-            <Link href={url} key={url}>
-              <a className="box">
-                <Image
-                  src={artwork.asset.url}
-                  alt={artwork.asset.altText}
-                  width={200}
-                  height={200}
-                />
-              </a>
-            </Link>
-  )
+    <Link href={url} key={url}>
+      <a className="box">
+        <Image
+          src={artwork.asset.url}
+          alt={artwork.asset.altText}
+          width={200}
+          height={200}
+        />
+      </a>
+    </Link>
+  );
 }
 
-export default function Artist({siteSettings, artist}) {
+export default function Artist({ siteSettings, artist }) {
   return (
     <Layout title={artist.name} siteSettings={siteSettings}>
       <Head>
@@ -40,9 +40,8 @@ export default function Artist({siteSettings, artist}) {
         </div>
         <h2>Releases</h2>
         <div className="card-grid">
-          {artist.releases.map(release => (
-            <ReleaseCard key={release.id} 
-            {...release} />
+          {artist.releases.map((release) => (
+            <ReleaseCard key={release.id} {...release} />
           ))}
         </div>
       </div>
@@ -50,30 +49,32 @@ export default function Artist({siteSettings, artist}) {
   );
 }
 
-export async function  getStaticProps({params}) {
-  const siteSettings = await fetcher('http://localhost:3000/api/settings');
-  const artists = await fetcher(`http://localhost:3000/api/artists/${params.slug}`);
+export async function getStaticProps({ params }) {
+  const siteSettings = await fetcher("http://localhost:3000/api/settings");
+  const artists = await fetcher(
+    `http://localhost:3000/api/artists/${params.slug}`
+  );
   const artist = artists.allArtist[0];
 
   return {
     props: {
       siteSettings,
-      artist
-    }
-  }
+      artist,
+    },
+  };
 }
 
 export async function getStaticPaths() {
-  const artists = await fetcher('http://localhost:3000/api/artists');
+  const artists = await fetcher("http://localhost:3000/api/artists");
 
   return {
-    paths: artists.map(artist => {
+    paths: artists.map((artist) => {
       return {
         params: {
-          slug: artist.slug.current
-        }
-      }
+          slug: artist.slug.current,
+        },
+      };
     }),
-    fallback: false
-  }
+    fallback: false,
+  };
 }

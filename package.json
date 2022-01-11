@@ -11,6 +11,7 @@
     "graphql": "latest",
     "graphql-request": "latest",
     "next": "latest",
+    "nodemailer": "^6.7.2",
     "react": "latest",
     "react-dom": "latest",
     "swr": "latest"

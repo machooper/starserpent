@@ -2,12 +2,19 @@ import { useState } from "react";
 import Layout from "comps/layout";
 import { fetcher } from "lib/fetch";
 
-function handleSubmit(e) {
-  e.preventDefault();
-}
-
 export default function Contact({ siteSettings }) {
   const [input, setInput] = useState({});
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await fetch(`/api/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(input),
+    });
+  }
 
   return (
     <Layout title="Contact" siteSettings={siteSettings}>
