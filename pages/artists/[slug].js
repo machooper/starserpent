@@ -67,7 +67,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const artists = await fetcher("http://localhost:3000/api/artists");
+  const artists = await fetch(`/api/artists`);
 
   return {
     paths: artists.map((artist) => {

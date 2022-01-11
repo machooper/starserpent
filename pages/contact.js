@@ -64,7 +64,7 @@ export default function Contact({ siteSettings }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
+  const siteSettings = await fetcher(`/api/settings`);
 
   return {
     props: {

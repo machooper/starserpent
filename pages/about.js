@@ -27,8 +27,8 @@ export default function About({ siteSettings, aboutPage }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
-  const aboutPage = await fetcher(`${process.env.URL}/api/about`);
+  const siteSettings = await fetcher(`/api/settings`);
+  const aboutPage = await fetcher(`/api/about`);
 
   return {
     props: {
