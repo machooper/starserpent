@@ -25,7 +25,7 @@ export default function Artists({ siteSettings, artists }) {
         <h1>Artists</h1>
         <div className="card-grid">
           {artists.map((artist) => (
-            <ArtistCard key={artist.id} {...artist} />
+            <ArtistCard key={artist.slug.current} {...artist} />
           ))}
         </div>
       </div>
@@ -34,8 +34,8 @@ export default function Artists({ siteSettings, artists }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher("http://localhost:3000/api/settings");
-  const artists = await fetcher("http://localhost:3000/api/artists");
+  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
+  const artists = await fetcher(`${process.env.URL}/api/artists`);
 
   return {
     props: {

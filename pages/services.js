@@ -34,8 +34,8 @@ export default function Services({ siteSettings, servicesPage }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher("http://localhost:3000/api/settings");
-  const servicesPage = await fetcher("http://localhost:3000/api/services");
+  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
+  const servicesPage = await fetcher(`${process.env.URL}/api/services`);
 
   return {
     props: {
