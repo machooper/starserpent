@@ -1,57 +1,57 @@
 :root {
-  --primary: hsl(144, 44%, 50%);
-  --secondary: hsl(168, 50%, 60%);
-  --text: hsl(188, 25%, 13%);
-  --link: hsl(159, 42%, 54%);
-  --link-hover: hsl(186, 22%, 9%);
-  --background: hsl(0, 0%, 95%);
-  --success: hsl(122, 39%, 49%);
-  --warning: hsl(45, 100%, 50%);
-  --error: hsl(4, 90%, 58%);
+  --primary: hsl(144deg 44% 50%);
+  --secondary: hsl(168deg 50% 60%);
+  --text: hsl(188deg 25% 13%);
+  --link: hsl(159deg 42% 54%);
+  --link-hover: hsl(186deg 22% 9%);
+  --background: hsl(0deg 0% 95%);
+  --success: hsl(122deg 39% 49%);
+  --warning: hsl(45deg 100% 50%);
+  --error: hsl(4deg 90% 58%);
   --shadow: 1.5px 1px 6px var(--text);
   --radius: 0;
-  --head: 'Montserrat', sans-serif;
-  --body: 'Montserrat', sans-serif;
+  --head: "Montserrat", sans-serif;
+  --body: "Montserrat", sans-serif;
   --line-height: 30px;
 }
 
 body {
+  position: relative;
   max-width: 100%;
   overflow-x: hidden;
-  position: relative;
-  font-family: var(--body);
+  color: var(--text);
   font-weight: 300;
+  font-family: var(--body);
   line-height: var(--line-height);
   background: var(--background);
-  color: var(--text);
 }
 
 button,
 .button {
-  color: var(--text);
-  border: 1px solid var(--text);
   padding: 0.8rem 1.4rem;
+  color: var(--text);
+  font-size: 0.7rem;
+  border: 1px solid var(--text);
   border-radius: var(--radius);
   cursor: pointer;
-  font-size: 0.7rem;
 }
 
 .btn-primary {
+  color: var(--background);
   background: var(--primary);
   border-color: var(--primary);
-  color: var(--background);
 }
 
 .btn-delete {
+  color: var(--background);
   background: var(--error);
   border-color: var(--error);
-  color: var(--background);
 }
 
 .btn-no-styles {
+  color: var(--text);
   background: transparent;
   border-color: transparent;
-  color: var(--text);
 }
 
 .btn-group {
@@ -62,19 +62,20 @@ button,
 }
 
 .form-group {
-  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 1rem;
 }
 
-input, textarea {
+input,
+textarea {
   min-width: 300px;
   max-width: 300px;
-  border-radius: var(--radius);
-  border: 1px solid var(--text);
-  appearance: none;
   padding: 0.8rem;
+  border: 1px solid var(--text);
+  border-radius: var(--radius);
+  appearance: none;
 }
 
 textarea {
@@ -83,14 +84,14 @@ textarea {
 
 header {
   top: 0;
-  width: 100vw;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--background);
-  z-index: 1;
-  padding: 1rem 1rem 0 0;
+  width: 100vw;
   margin-bottom: 1.5rem;
+  padding: 1rem 1rem 0 0;
+  background: var(--background);
 }
 
 nav {
@@ -98,16 +99,13 @@ nav {
   top: -10px;
   right: -10px;
   z-index: 1;
-  width: 320px;
-  height: 100vh;
-  background: var(--background);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: -7px -1px 7px 0px rgba(0,0,0,0.4);
+  width: 320px;
+  height: 100vh;
+  background: var(--background);
+  box-shadow: -7px -1px 7px 0 rgb(0 0 0 / 40%);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -117,15 +115,15 @@ nav #close {
   right: 0;
   z-index: 1;
   padding: 1rem;
-  cursor: pointer;
   font-size: 2.5rem;
+  cursor: pointer;
 }
 
 nav ul {
-  list-style: none;
   align-self: flex-end;
-  text-align: right;
   padding: 3.5rem 1rem;
+  text-align: right;
+  list-style: none;
 }
 
 nav ul li {
@@ -133,9 +131,9 @@ nav ul li {
 }
 
 nav ul li a {
-  text-decoration: none;
   color: var(--link);
   font-size: 2.5rem;
+  text-decoration: none;
 }
 
 nav ul li a:hover {
@@ -157,26 +155,25 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   width: 100vw;
+  text-align: center;
 }
-
 
 .cover-image {
   width: 100vw;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .card {
-  width: 300px;
-  height: 500px;
-  cursor: pointer;
-  margin: .5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 300px;
+  height: 500px;
+  margin: 0.5rem;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -210,16 +207,16 @@ footer {
 }
 
 footer a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
   main {
-    min-height: 75vh;
     max-width: auto;
-    padding: 0;
+    min-height: 75vh;
     margin: 0;
+    padding: 0;
   }
 
   p {
@@ -228,8 +225,7 @@ footer a {
   }
 
   .card-grid {
+    flex-flow: row wrap;
     width: 100vw;
-    flex-direction: row;
-    flex-wrap: wrap;
   }
 }

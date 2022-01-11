@@ -4,24 +4,40 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --fix; stylelint 'styles/**' --fix"
   },
   "eslintConfig": {
-    "extends": "next/core-web-vitals"
+    "extends": "next/core-web-vitals",
+    "ignorePatterns": [
+      "next.config.js",
+      "**/node_modules/**",
+      "**/public/**"
+    ]
+  },
+  "stylelint": {
+    "extends": ["stylelint-config-standard", "stylelint-config-rational-order"],
+    "rules": {
+      "no-descending-specificity": null
+    },
+    "ignoreFiles": [
+      "**/node_modules/**",
+      "**/public/**"
+    ]
   },
   "dependencies": {
-    "@fontsource/montserrat": "^4.5.1",
+    "@fontsource/montserrat": "latest",
     "graphql": "latest",
     "graphql-request": "latest",
     "next": "latest",
-    "nodemailer": "^6.7.2",
+    "nodemailer": "latest",
     "react": "latest",
     "react-dom": "latest"
   },
   "devDependencies": {
     "eslint": "latest",
     "eslint-config-next": "latest",
-    "styled-jsx": "latest",
-    "stylelint": "latest"
+    "stylelint": "latest",
+    "stylelint-config-standard": "latest",
+    "stylelint-config-rational-order": "latest"
   }
 }
