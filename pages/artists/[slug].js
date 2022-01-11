@@ -67,7 +67,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const artists = await fetch(`/api/artists`);
+  const artists = await fetch(`${process.env.URL}/api/artists`);
 
   return {
     paths: artists.map((artist) => {

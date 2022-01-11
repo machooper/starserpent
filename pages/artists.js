@@ -34,8 +34,8 @@ export default function Artists({ siteSettings, artists }) {
 }
 
 export async function getStaticProps() {
-  const siteSettings = await fetcher(`/api/settings`);
-  const artists = await fetcher(`/api/artists`);
+  const siteSettings = await fetcher(`${process.env.URL}/api/settings`);
+  const artists = await fetcher(`${process.env.URL}/api/artists`);
 
   return {
     props: {
