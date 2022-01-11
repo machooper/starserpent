@@ -1,6 +1,6 @@
 import { request } from "graphql-request";
 
-export default async (req, res) => {
+const handler = async (req, res) => {
   try {
     const artist = await request(
       "https://xrddhs1w.api.sanity.io/v1/graphql/production/default",
@@ -35,3 +35,5 @@ export default async (req, res) => {
     console.log(e);
   }
 };
+
+export default handler;

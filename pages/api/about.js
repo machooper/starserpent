@@ -1,6 +1,6 @@
 import { request } from "graphql-request";
 
-export default async (req, res) => {
+const handler = async (req, res) => {
   try {
     const aboutPage = await request(
       process.env.GRAPHQL_URL,
@@ -22,3 +22,5 @@ export default async (req, res) => {
     res.status(500).json(e);
   }
 };
+
+export default handler;

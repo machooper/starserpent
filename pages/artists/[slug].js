@@ -6,7 +6,8 @@ import { fetcher } from "lib/fetch";
 
 function ReleaseCard({ name, artwork, url }) {
   return (
-    <Link href={url} key={url}>
+    <div key={url}>
+    <Link href={url}>
       <a className="box">
         <Image
           src={artwork.asset.url}
@@ -16,6 +17,7 @@ function ReleaseCard({ name, artwork, url }) {
         />
       </a>
     </Link>
+    </div>
   );
 }
 
