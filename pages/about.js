@@ -29,8 +29,6 @@ export default function About({ siteSettings, aboutPage }) {
 export async function getStaticProps() {
   const siteSettings = await siteSettingsQuery();
   const aboutPage = await aboutPageQuery();
-  console.log(siteSettings);
-  console.log(aboutPage);
 
   return {
     props: {

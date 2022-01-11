@@ -54,7 +54,6 @@ export default function Artist({ siteSettings, artist }) {
 export async function getStaticProps({ params }) {
   const siteSettings = await siteSettingsQuery();
   const artist = await artistBySlug(params.slug);
-  console.log(artist);
 
   return {
     props: {
