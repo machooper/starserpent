@@ -89,7 +89,7 @@ header {
   justify-content: space-between;
   background: var(--background);
   z-index: 1;
-  padding: 1rem 0;
+  padding: 1rem 1rem 0 0;
   margin-bottom: 1.5rem;
 }
 
