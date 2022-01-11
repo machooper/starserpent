@@ -8,6 +8,9 @@ export default async (req, res) => {
       {
   allArtist {
     name
+    slug {
+      current
+    }
     displayImage {
       asset {
         url

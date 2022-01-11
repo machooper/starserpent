@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function ArtistCard({ name, displayImage, slug }) {
   return (
-    <Link href={`/artists/${slug}`}>
+    <Link href={`/artists/${slug.current}`}>
       <div className="card">
         <Image
           src={displayImage.asset.url}

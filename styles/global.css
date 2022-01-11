@@ -136,6 +136,10 @@ nav ul li a {
   font-size: 2.5rem;
 }
 
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
 nav ul li a.active {
   color: var(--primary);
 }
@@ -171,6 +175,11 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+  transform: scale(1.02);
 }
 
 .card-grid {
