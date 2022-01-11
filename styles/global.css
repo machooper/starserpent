@@ -213,6 +213,10 @@ footer a {
 }
 
 @media (min-width: 768px) {
+  header {
+    max-width: 75vw;
+  }
+
   main {
     max-width: auto;
     min-height: 75vh;
