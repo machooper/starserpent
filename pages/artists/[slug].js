@@ -54,7 +54,7 @@ export default function Artist({ siteSettings, artist }) {
 export async function getStaticProps({ params }) {
   const siteSettings = await fetcher("http://localhost:3000/api/settings");
   const artists = await fetcher(
-    `http://localhost:3000/api/artists/${params.slug}`
+    `${process.env.URL}/api/artists/${params.slug}`
   );
   const artist = artists.allArtist[0];
 
