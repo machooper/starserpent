@@ -3,7 +3,7 @@ import { request } from "graphql-request";
 export default async (req, res) => {
   try {
     const servicesPage = await request(
-      "https://xrddhs1w.api.sanity.io/v1/graphql/production/default",
+      process.env.GRAPHQL_URL,
       `{
   ServicesPage(id:"servicesPage") {
     list
