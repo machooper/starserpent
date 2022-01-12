@@ -32,8 +32,9 @@ export default function Artist({ siteSettings, artist }) {
         <Image
           src={artist.coverImage.asset.url}
           alt={artist.coverImage.asset.altText}
-          width={340}
-          height={340}
+          width={360}
+          height={360}
+          layout='intrinsic'
         />
         <div className="prose">
           {artist.biographyRaw.map((child, i) => {

@@ -6,14 +6,14 @@ import { siteSettingsQuery, allArtistsQuery } from "lib/queries";
 function ArtistCard({ name, displayImage, slug }) {
   return (
     <Link href={`/artists/${slug.current}`} passHref>
-      <div className="card">
+      <a className="card">
         <Image
           src={displayImage.asset.url}
           alt={displayImage.asset.altText}
           width={300}
           height={500}
         />
-      </div>
+      </a>
     </Link>
   );
 }
