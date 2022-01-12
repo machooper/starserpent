@@ -1,5 +1,6 @@
 {
-  "name": "next-starter",
+  "name": "starserpent",
+  "license": "unlicensed",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
