@@ -47,7 +47,8 @@ export default function Artist({ siteSettings, artist }) {
             <ReleaseCard key={release.id} {...release} />
           ))}
         </div>
-      </div> */}
+      */}
+      </div> 
     </Layout>
   );
 }
