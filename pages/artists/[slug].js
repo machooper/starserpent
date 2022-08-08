@@ -41,13 +41,13 @@ export default function Artist({ siteSettings, artist }) {
             return <p key={i}>{child.children[0].text}</p>;
           })}
         </div>
-        <h2>Releases</h2>
+        {/* <h2>Releases</h2>
         <div className="card-grid">
           {artist.releases.map((release) => (
             <ReleaseCard key={release.id} {...release} />
           ))}
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 }

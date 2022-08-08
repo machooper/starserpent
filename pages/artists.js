@@ -20,9 +20,9 @@ function ArtistCard({ name, displayImage, slug }) {
 
 export default function Artists({ siteSettings, artists }) {
   return (
-    <Layout title="Artists" siteSettings={siteSettings}>
+    <Layout title="Releases" siteSettings={siteSettings}>
       <div className="container">
-        <h1>Artists</h1>
+        <h1>Releases</h1>
         <div className="card-grid">
           {artists.map((artist) => (
             <ArtistCard key={artist.slug.current} {...artist} />
