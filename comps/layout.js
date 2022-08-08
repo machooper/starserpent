@@ -64,7 +64,7 @@ export function MenuButton({ open, click }) {
 }
 
 export function Menu({ open, click }) {
-  const navigation = ["Home", "About", "Artists", "Services", "Contact"];
+  const navigation = ["Home", "About", "Releases", "Services", "Contact"];
   const router = useRouter();
   const active = router.asPath;
   return (
